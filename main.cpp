@@ -47,8 +47,7 @@ int main()
       page = open("/home/ki/web/a.html",O_RDONLY);
         n=  read(page,buf,4096);
         write(connfd,buf,n);
- 
- 
+      cout<<"xingke"<<endl;
 
   return 0;
 // http
