@@ -44,11 +44,15 @@ int main()
        read(connfd,buf,4096);
        cout<<buf<<endl;
      //test
-      page = open("/home/ki/web/a.html",O_RDONLY);
+      page = open("/home/ki/web/html/a.html",O_RDONLY);
+      if(page <0)
+        cout<<"kk"<<endl;
         n=  read(page,buf,4096);
         write(connfd,buf,n);
-      cout<<"xingke"<<endl;
-
+      cout<<buf<<endl;
+  
+   
+    close(listenfd);
   return 0;
 // http
     
