@@ -1,4 +1,5 @@
-#includ <iostram>
+#include <iostram>
+#include <stdio.h>
 
 
 class http
