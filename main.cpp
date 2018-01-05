@@ -17,6 +17,8 @@ transmission   *_T;
 port_table     TB[100]; 
 pth_info       AR[MAXTHREAD];    
  
+char request_buf[4096];
+
   /*  v1
 /***********主函数*********/
 int main()
@@ -25,7 +27,9 @@ int main()
     socklen_t     clilen;
     int           connfd;
     int           err;
- 
+    
+    int    n,  page;
+    
     signal(SIGPIPE,for_SIGPIPE);
     memset(AR,0,sizeof(AR));
     memset(TB,-1,sizeof(TB));
@@ -35,10 +39,14 @@ int main()
 // http
  
  connfd = accept(listenfd, (struct sockaddr *)&cliaddr, &clilen); 
-    
-      cout<<CONF.listen_port;   char buf[4096];
-      read(connfd,buf,4096);
-      cout<<buf<<endl;
+       char buf[4096];
+       cout<<CONF.listen_port; 
+       read(connfd,buf,4096);
+       cout<<buf<<endl;
+     //test
+      page = open("/home/ki/web/a.html",O_RDONLY);
+        n=  read(page,buf,4096);
+        write(connfd,buf,n);
  
  
 
