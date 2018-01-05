@@ -1,0 +1,4 @@
+file_share_path=/home/ki/share  
+listen_port=80
+Max_pthread=10
+Max_connect=1024
