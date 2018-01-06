@@ -9,8 +9,16 @@ config  conf;
 
 
 int main() 
-{
-    cout<<"running"<<endl;
- 
+{ 
+    //创建linsten socket
+     
+      
+   
 
+
+
+
+
+
+   return 0;
 }

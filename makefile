@@ -1,5 +1,5 @@
 
-obj = main.o  
+obj = main.o config.o
 run:main
 	./main
 

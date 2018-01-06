@@ -2,6 +2,7 @@
 #ifndef _CONFIG_H
 #define _CONFIG_H
 
+#define CONFIPATH "./config"
  
 #include <iostream>
 #include <string>
@@ -13,7 +14,8 @@ class config
 { 
  public: 
         
- virtual int init(){   return 0;} 
+             config();
+ virtual int init(); 
  
     string  page_file_path;
     int     listen_port;   
