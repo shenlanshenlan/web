@@ -1,12 +1,13 @@
 #include <iostream> 
+
 #include "main.h"
 #include "config.h"
-
+#include "sock.h"
  
 using namespace std;
 
-config  conf;
-
+config  Conf;
+sock    Sock;
 
 int main() 
 { 
