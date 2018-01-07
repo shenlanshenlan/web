@@ -1,5 +1,6 @@
 
 obj = main.o config.o sock.o -lpthread
+test =  condition_test.cpp -lpthread
 run:main
 	./main
 
@@ -13,3 +14,7 @@ config.o:config.cpp
 sock.o:sock.cpp
 	g++ -c -o sock.o sock.cpp
 
+t:test
+	./test
+test:$(test)
+	g++ -o test $(test)
