@@ -1,5 +1,5 @@
 
-obj = main.o config.o sock.o
+obj = main.o config.o sock.o -lpthread
 run:main
 	./main
 
