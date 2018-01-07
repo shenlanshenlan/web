@@ -13,7 +13,7 @@ int main()
 { 
     //创建linsten socket
      
-      
+       Sock.listen();    
    
 
 
