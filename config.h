@@ -18,7 +18,8 @@ class config
  virtual int init(); 
  
     string  page_file_path;
-    int     listen_port;   
+    int     listen_port;
+    int     max_pthreads;   
 
 };
 #endif

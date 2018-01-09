@@ -11,12 +11,20 @@ using namespace std;
 void * p_fun( void  *);
 void * p_fun2( void  *);
 
+void  (* porint)(int);
+void  fun(int a ) {
+ 
+  cout<<a<<endl;
+
+}
 
 int global=5;
 pthread_mutex_t  mutex;      //互斥锁
 pthread_cond_t   condition;  //条件变量
 int main() 
-{ 
+{   
+   porint = fun;
+   (*porint)(5);
 
    pthread_t   tid; 
    //init
@@ -28,7 +36,7 @@ int main()
  
       for(int i =0;i<5;i++)  //create five thread b
          pthread_create(&tid,NULL,p_fun2,NULL);
-   
+  
 
    
    sleep(30);   //wait exit
