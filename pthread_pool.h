@@ -7,8 +7,8 @@
 #include "config.h"
  
 
-#define  MAX_PTHREADS  16
-#define  MAX_JOBS      10000
+#define  MAX_PTHREADS  8
+#define  MAX_JOBS      1000000
  
 
 class job; 

@@ -9,7 +9,7 @@ sock    Sock;
  
 void *(*f )(void*);
 void *c(void *); 
-
+ int global=0;
 extern pthread_pool pool;
 int main() 
 { 
@@ -18,31 +18,26 @@ int main()
 
   
    pool.init();
-   int n=0;
+   int n;
    f= c;
+ 
   for ( ; ; )
   {  
- 
       if((pool.add_work(f,NULL))==-1) 
-      break;
-      n++;
-      cout<<n<<endl;
+        continue;
   }
+ 
+ 
 
  
-cout<<"============"<<pool.job_count<<":"<<n<<"sleep"<<endl;
-
  sleep(100);
 
    return 0; 
 }
  
  void *c(void *) 
- {
-    sleep( 1);
-
-
-
-     cout<<pool.job_count<<endl;        
+ {    global+=1;
+      cout<<global<<endl;
+         
      return NULL;
  }

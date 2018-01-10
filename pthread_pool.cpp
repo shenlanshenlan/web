@@ -55,10 +55,11 @@ while(1)
           pthread_cond_wait(&pool->no_empty,&pool->mutex);        
          }
            cur_job =pool->out_work();
- 
+         
           pthread_mutex_unlock(&pool->mutex); 
           pthread_cond_signal(&pool->no_empty); 
-         cur_job->work_function(cur_job->arg);//work run
+           
+          cur_job->work_function(cur_job->arg);//work run
         delete cur_job; 
      }
     
@@ -95,20 +96,22 @@ int pthread_pool::add_work(void *(*function)(void *),void *arg)
 }
 job * pthread_pool::out_work()
 {    
+   
       job * out ;
 
      if(point == point->next)   
      {   out = point ;
          point = NULL;
+         job_count=0;
         return out;        
      } 
-  
+    else{
      out = point->next;
      point->next = out->next;
      job_count--;
+    }
 
-
-
+ 
      return out;
 }
 
