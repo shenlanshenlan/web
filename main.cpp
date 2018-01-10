@@ -11,21 +11,27 @@ sock    Sock;
  
 int main() 
 { 
+ try{
+  Sock.init();
 
+
+
+
+
+
+
+
+
+
+
+
+ }
  
-
-
-
-
-
-
-
-
-
-
-
-
-   return 0; 
+catch(const char* err)
+ {  
+  cout<<err<<endl;    
+ }
+    return 0; 
 }
 
  
