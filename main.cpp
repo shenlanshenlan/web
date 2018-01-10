@@ -13,14 +13,10 @@ void *c(void *);
 extern pthread_pool pool;
 int main() 
 { 
+   //quequ test
+  
 
-
-
-
-
-
-
-    
+  
    pool.init();
    int n=0;
    f= c;
@@ -30,18 +26,23 @@ int main()
       if((pool.add_work(f,NULL))==-1) 
       break;
       n++;
+      cout<<n<<endl;
   }
 
  
-cout<<"~~~~~~~~~~~~~~~~~"<<pool.job_count<<":"<<n<<"sleep"<<endl;
+cout<<"============"<<pool.job_count<<":"<<n<<"sleep"<<endl;
 
- sleep(10);
+ sleep(100);
 
    return 0; 
 }
  
  void *c(void *) 
  {
-    // cout<<pthread_self()<<endl;        
+    sleep( 1);
+
+
+
+     cout<<pool.job_count<<endl;        
      return NULL;
  }
