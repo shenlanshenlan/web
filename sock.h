@@ -16,7 +16,7 @@ class sock
 {  
    int listen_fd;
    int epoll_fd;
-
+  
 
 
  public:
@@ -25,10 +25,4 @@ class sock
  
   
 };
-#endif                 
-                 
-                 
-                 
-                 
-                 
-      
+#endif   

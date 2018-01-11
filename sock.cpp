@@ -10,12 +10,7 @@ int sock::init()
   create_listen();
    
   epoll_fd = epoll_create(MAXEPOLLFD);
-     
-        
-     
  
- 
-
  return 0;
 }
   
