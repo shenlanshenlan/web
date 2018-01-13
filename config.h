@@ -2,24 +2,26 @@
 #ifndef _CONFIG_H
 #define _CONFIG_H
 
-#define CONFIPATH "./config"
+#define CONFIGPATH "./config"
  
 #include <iostream>
 #include <string>
-
+#include <fstream>
+#include <unistd.h>
+#include <stdlib.h>
 using namespace std;
 
 
-class config
+class config 
 { 
  public: 
-        
-             config();
- virtual int init(); 
- 
-    string  page_file_path;
+  
+    string  default_dir;
     int     listen_port;
-    int     max_pthreads;   
+    int     max_pthreads;
+               
+            config();
+ virtual int init(); 
 
 };
 #endif

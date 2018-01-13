@@ -1,8 +1,8 @@
 
-obj = main.o config.o sock.o pthread_pool.o -lpthread
-.o = main.o config.o sock.o pthread_pool.o
+obj = main.o config.o sock.o pthread_pool.o protocol.o -lpthread 
+.o = main.o config.o sock.o pthread_pool.o protocol.o
 test =  condition_test.cpp -lpthread
-debug = main.cpp config.cpp sock.cpp pthread_pool.cpp
+debug = main.cpp config.cpp sock.cpp pthread_pool.cpp io.cpp
 
 
 run:main 
@@ -19,7 +19,11 @@ sock.o:sock.cpp
 	g++ -c -o sock.o sock.cpp
 pthread_pool.o:pthread_pool.cpp
 	g++ -c -o pthread_pool.o pthread_pool.cpp
- 
+
+protocol.o:protocol.cpp
+	g++ -c -o protocol.o protocol.cpp
+
+
 gdb:debug  
 	gdb debug
 

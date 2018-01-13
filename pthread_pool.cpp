@@ -2,11 +2,11 @@
 #include "pthread_pool.h"
 #include <unistd.h>
 #include <signal.h>
-pthread_pool pool;    //global
 
 
+
+pthread_pool pool;    //global 
   
-
 /* 初始化
 */
 int pthread_pool::init() 
@@ -23,7 +23,7 @@ job_count = 0;
  
 create_pthread();
 
-cout<<"[==pool_init==]"<<endl;
+cout<<"pool init "<<endl;
  
 return 0;
 }
