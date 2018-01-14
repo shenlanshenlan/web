@@ -10,15 +10,14 @@ config::config()
       
 int config::init()
 {
-   fstream  conf;
+   fstream  conf,pagedir;
    string   content,value;
    int      index;
  
   
-   conf.open(CONFIGPATH);
- 
-
-     if(conf.good())       
+   conf.open(CONFIGPATH);   
+  
+     if(conf.good())        
    { 
      while(1)                   //init 
      { 
@@ -39,8 +38,8 @@ int config::init()
 
         if(conf.eof())
         { 
-          break;          
           conf.close();
+          break;          
         }
       }  
    }
@@ -50,6 +49,30 @@ int config::init()
     _exit(0); 
    }
    
+
+    memset(cwd,0,256);
+    getcwd(cwd,256);
+ 
+      string a;
+      a=default_dir;
+      default_dir = cwd;
+      default_dir = default_dir +a; 
+    
+      DIR * pdir;
+
+ 
+
+   pdir = opendir((const char *)default_dir.data());
+
+    if(pdir != NULL)
+    {
+       cout<<"default_dir "<<default_dir<<endl;
+       closedir(pdir);
+    }else
+    {   
+        mkdir((const char *)default_dir.data(),S_IRUSR|S_IWUSR|S_IXUSR);
+        cout<<"create default_dir "<<default_dir<<endl; 
+    }
    cout<<"config init "<<endl;
 return 0;
 }

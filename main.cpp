@@ -18,6 +18,7 @@ int main()
  
   pool.init();   // thread pool    
   Sock.init();   // work with epoll 
+  
  }
  
 catch(const char* err)
@@ -30,54 +31,14 @@ catch(const char* err)
   
  //=========================================================
  
- void *work(void *arg)    //pthread_work_test
+ void *work(void *arg)    
  {  
-
      int   cli; 
      cli = *(int*)arg;
-     http  obj(cli);
-
-
-    cout<<"work"<<obj.version<<endl;
-    
-
-
-
-
-
-
-
-
-
-     /* int   cli; 
-      char  buf[10240]; 
-      int   n,file;                                                        // 解析协议
-  
-
-      cli = *(int*)arg;
-      n = read(cli,buf,10240);                                                //获取请求 响应
-      cout<<buf<<endl;
-      memset(buf,0,10240);
-      
-       file = open("./html/a.html",O_RDONLY);
-    
-      n = read(file,buf,10240);
+     http      msg(cli);
+     msg.response();
  
-      write(cli,buf, n);*/
-   
    return NULL ;
  }
 
-/*
-int pool_test()    //a test for pool 
-{ 
-   pool.init();
-   int n;
-   f= c;
-  for ( ; ; )
-  {  
-      if((pool.add_work(f,NULL))==-1) 
-        continue;
-  }
- sleep(100);
-} */   
+ 

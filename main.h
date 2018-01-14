@@ -12,6 +12,9 @@
 #include "pthread_pool.h"
 #include "protocol.h" 
 
+#define   PATHLEN 100
+#define E(a) printf(a);
+
 using namespace std;
 
 
