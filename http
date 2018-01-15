@@ -1,0 +1,7 @@
+GET / HTTP/1.1
+User-Agent: Wget/1.18 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 192.168.1.103
+Connection: Keep-Alive
+
