@@ -1,4 +1,3 @@
 default_dir=/html
 port=80
-max_pthreads=8
-
+ 

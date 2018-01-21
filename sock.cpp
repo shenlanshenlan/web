@@ -43,7 +43,7 @@ int sock::run()
  while(1)
   { 
       int i,n;
-      
+      memset(events,0,sizeof(events));
       n = epoll_wait(epoll_fd,events,MAXEPOLLFD,-1);
        
    for(i =0; i < n;i++)   
@@ -59,14 +59,16 @@ int sock::run()
               event.data.fd = client;
               event.events = EPOLLIN | EPOLLET | EPOLLRDHUP;  
               epoll_ctl(epoll_fd,EPOLL_CTL_ADD,client,&event);                 
- 							cli_add(client);
+ 			  cli_add(client);
+              cout<<"listen"<<endl;
            
         } 
       else if(events[i].events & EPOLLRDHUP)  //closed
         {                  
             close(events[i].data.fd);              
             epoll_ctl(epoll_fd,EPOLL_CTL_DEL,events[i].data.fd,NULL);
- 						cli_del(client);  
+ 			cli_del(events[i].data.fd);
+               
             cout<<"closed"<<endl;   
         }
       else  if(events[i].events & EPOLLIN  )   //can read

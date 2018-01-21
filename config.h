@@ -26,6 +26,7 @@ class config
     int     listen_port;
     int     max_pthreads;
     char    cwd[256];
+    
                
             config();
  virtual int init(); 

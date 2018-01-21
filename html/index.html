@@ -1,13 +1,99 @@
-
-
+<!DOCTYPE html>
+<head> 
 <html>
-<h1> this is one for file server </h1>
+<link href="https://shenlan5581.github.io./k.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script src="https://shenlan5581.github.io./k.js">
+</script>
+<title>K</title>   
+</head>
+ 
+<body> 
+     
+    <top id = "top">   
+        Learn
+      <div id = "auther"> 22542812@qq.com </div>
+    </top>
+ 
 
 
+      <div class="content" >
+          <div onclick="show('1')"> C++ namespace</div>  
+          <content  id = "1"> 
+            <pre>  
 
+            命名空间用于团队协作中 避免由于 标识符命名 所引起的冲突
+     
+                    /*使用模板的文件不能独立编译
+                    必须被包含于调用它的编译单元中
+                    并且必须位于调用之前
+                    （可以先声明再，定义.意义不大）
+                    
+                     添加预编译宏防止重复包含
 
-
-
-
-
-</html>
+                     作用域：  函数和括号内的 局部域
+                            全局 
+                               
+                    namespace k    //命名空间 
+                {
+                    template < class T,class Y >   //模板函数
+                    void c(T a,Y b)
+                    {               
+                     std::cout << a << b << std::endl;
+                    }    
+ 
+                    template < class A ,class B >   //模板类 声明
+                    class  in
+                    { 
+                     public:
+                         class kk
+                         {
+                           int  a;
+                         };                      
+                       A    x;
+                       B    l;
+                         in();     
+                    };                   
+                    template<class A,class B>    //模板类 定义
+                       in<A,B>::in()             
+                     {
+                      std::cout << "s";
+                     }                 
+                 }
+         
+           //     using
+                            int main() 
+                            {  
+                                
+                            using k::c;        // c标识符 作为 k空间的 c 的 唯一标识        
+                                char f='g';
+                                int e = 10;
+                                c(e,f);                 //模板函数调用
+                            
+                            using k::in;
+                            
+                               in < int,char>  da;     //实例
+                                                       //此处的两个类型  指定了 class A 和 class B 的具体类型   
+                               in<int,char>  *ds;
+                               ds = new in<int,char>;  //指针实例化  此处  <  > 中的类型 必须和指针声明时的类型相同
+                              
+                               typedef in<double,char> hh;  //特化的 in 类 作为类型
+                  
+                                 using  std::vector;        //使用命名空间 方法1  verctor 将指定为 std 空间中的 vector
+                                 vector<int>::iterator p;   // vertor 中的嵌套类
+                            
+                                 k::in<int,int>::kk lp;     // 方法2 使用域作用符    空间名::类名::嵌套类名  对象
+                               return 0;
+                            }  
+                             
+           </pre>
+          </content>
+      </div> 
+      <a href="./a.html">aaaa</a>
+      
+ 
+ 
+       
+</body>
+</html> 
+ 

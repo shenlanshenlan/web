@@ -34,10 +34,16 @@ catch(const char* err)
  void *work(void *arg)    
  {  
      int   cli; 
-     cli = *(int*)arg;
-     http      msg(cli);
-     msg.response();
- 
+    /*if(arg == NULL)
+     {
+      cout<<"client-close"<<endl;
+      return NULL;
+     }*/
+
+      cli = *(int*)arg;
+      k::request     msg(cli);
+      k::response    res(&msg);
+  
    return NULL ;
  }
 

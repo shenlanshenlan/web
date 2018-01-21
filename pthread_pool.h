@@ -6,11 +6,10 @@
 #include <pthread.h>
 #include "config.h"
  
-
+extern config conf;
 #define  MAX_PTHREADS  8
 #define  MAX_JOBS      1000000
  
-
 class job; 
 class pthread_pool
 {

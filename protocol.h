@@ -14,44 +14,48 @@
 #include <fcntl.h>
      
 #include "config.h"
-
+ 
 extern config conf;
+namespace k
+{ 
 
-#define ELEMENT 30
-#define MSGLEN  8192
-#define MAXPAGELEN 4096
+using  namespace std;
+ 
+
+#define ELEMENT 300
+#define MSGLEN   18192
+#define MAXPAGELEN  14096
 
 #define E(a) printf(a);
  
-using namespace std; 
  
-class http 
+class request
 {
 public:
     int cli;
     
     char   * req_type;
     char   * url;
-    char   * version;
-      
-    char  *elements[ELEMENT];
- 
- 
+    char   * data;
+    char   * cli_addr;  
 
-    char    msg[MSGLEN]; 
-    char    res_msg[MSGLEN];
-   
-
-        http(int);
-    int response();
- 
-
-
+        request(int);  
 private:
+     char    *elements[ELEMENT]; 
+     char    msg[MSGLEN]; 
+}; 
+ 
+ class response
+{         
+ public:   
+    char    msg[MSGLEN]; 
+    char    page[MAXPAGELEN];
+  
+              response(request*); 
+         };  
+ 
 
+ 
 
-
-
-};
-
+}
  #endif
