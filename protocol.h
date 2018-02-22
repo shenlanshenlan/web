@@ -28,7 +28,6 @@ using  namespace std;
 
 #define E(a) printf(a);
  
- 
 class request
 {
 public:
@@ -54,7 +53,7 @@ private:
               response(request*); 
          };  
  
-
+   
  
 
 }

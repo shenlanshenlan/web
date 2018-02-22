@@ -1,12 +1,15 @@
 
 obj = main.o config.o sock.o pthread_pool.o protocol.o -lpthread 
-.o =  main main.o config.o sock.o pthread_pool.o protocol.o
+.o =  main.o config.o sock.o pthread_pool.o protocol.o
 test =  condition_test.cpp -lpthread
 debug = main.cpp config.cpp sock.cpp pthread_pool.cpp protocol.cpp
 
 
-run:main 
+run:clean_o
 	sudo ./main
+
+clean_o:main
+	sudo rm $(.o) 	
 
 main:$(obj) 
 	g++ -o main $(obj)

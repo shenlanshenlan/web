@@ -35,7 +35,7 @@ int config::init()
            }    
  
            //... ... more
-
+        
         if(conf.eof())
         { 
           conf.close();

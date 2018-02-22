@@ -40,13 +40,13 @@ request::request(int client)
                 break;
             }    
       }
- /*
+
  for(i=0;i<30;i++)  // cout
  {     
      if(elements[i] == NULL)
        break;
        printf("%d: %s\n",i,elements[i]);  
- }  */
+ } 
      req_type =elements[0];
      url      =elements[1];
 } 
@@ -100,7 +100,7 @@ response::response(request * req)
         strcat(msg,page);
         strcat(msg,"\0"); 
            
-
+  
         e=0;
         while(1)
         {

@@ -1,20 +1,25 @@
  
-
+#define xingke cout<<"xingke"<<endl;
 
 //
 #include "main.h"
  
  
-void *work(void *); 
-  
+
+ #define ff(xx)  xx(sss,10)
+ #define xx(name,value) name=value 
  
+
+
 extern config conf;
 extern pthread_pool pool;
 extern sock    Sock;
 int main() 
-{ 
-  
- try{
+{  
+    int sss;
+     ff(xx); 
+ cout <<sss;
+ try{ 
  
   pool.init();   // thread pool    
   Sock.init();   // work with epoll 
