@@ -1,20 +1,11 @@
-
 #include "pthread_pool.h"
 #include <unistd.h>
 #include <signal.h>
-
-
-
 pthread_pool pool;    //global 
-  
 /* 初始化
 */
-int pthread_pool::init() 
-{
-
+int pthread_pool::init() {
 signal(SIGPIPE,for_SIGPIPE); 
-   
-  
 pthread_mutex_init(&mutex,NULL); 
 pthread_cond_init(&no_empty,NULL);
 point = NULL;   

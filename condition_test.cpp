@@ -1,6 +1,6 @@
 
 
-
+#include <string>
 #include <iostream> 
 #include <pthread.h>
 #include <unistd.h>
@@ -72,7 +72,7 @@ void * p_fun2( void  *)   //改变条件
    cout<<"b "<<global<<endl;
    pthread_cond_signal(&condition); //send signal   //A
             //此时如果不解锁 等待线程将无法获取锁
-   
+            //                                    此处应该是先解锁 再发送信号处应该是先解锁  
    pthread_mutex_unlock(&mutex);
 
    pthread_cond_signal(&condition); //send signal   //B

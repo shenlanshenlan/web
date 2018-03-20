@@ -1,44 +1,16 @@
 
-obj = main.o config.o sock.o pthread_pool.o protocol.o -lpthread 
-.o =  main.o config.o sock.o pthread_pool.o protocol.o
-test =  condition_test.cpp -lpthread
-debug = main.cpp config.cpp sock.cpp pthread_pool.cpp protocol.cpp
+src := main.cpp
+src += config.cpp
+src += sock.cpp
+src += pthread_pool.cpp
+src += protocol.cpp
 
+obj :=$(src:.cpp=.o)
 
-run:clean_o
-	sudo ./main
-
-clean_o:main
-	sudo rm $(.o) 	
-
-main:$(obj) 
-	g++ -o main $(obj)
-
-main.o:main.cpp
-	g++ -c -o main.o main.cpp
-config.o:config.cpp
-	g++ -c -o config.o config.cpp
-sock.o:sock.cpp
-	g++ -c -o sock.o sock.cpp
-pthread_pool.o:pthread_pool.cpp
-	g++ -c -o pthread_pool.o pthread_pool.cpp
-
-protocol.o:protocol.cpp
-	g++ -c -o protocol.o protocol.cpp
-
-
-gdb:debug  
-	gdb debug
-
-debug:$(debug)
-	g++ -g -o debug $(debug) -lpthread    
-
-cleandug:debug 
-	rm debug
-
-t:test
-	./test
-test:$(test)
-	g++ -o test $(test)
+.cpp.o:
+	g++ --std=c++11 -g -c  -o $@ $<
+all:$(obj)
+	g++ --std=c++11 -g -o main $(obj) -lpthread
 clean:$(.o)
-	sudo rm $(.o) 
+	sudo rm *.o) 
+	sudo rm main
